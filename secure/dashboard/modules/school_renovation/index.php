@@ -6,7 +6,10 @@ session_start();
  * @package  Laravel
  * @author   Taylor Otwell <taylorotwell@gmail.com>
  */
-
+//if(!isset($_SESSION['session_name'])){    
+//    header("Location:../../index.php");
+//    exit(); 
+//}
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader

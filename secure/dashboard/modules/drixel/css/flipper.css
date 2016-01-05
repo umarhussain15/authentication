@@ -55,7 +55,7 @@
   cursor: pointer;
 }
 .flip .card .back {
-    background:#b3b3b3;
+    background:white;
     color: black;
     cursor: pointer;
     

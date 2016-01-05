@@ -10,15 +10,9 @@
 <!--  Custom Style -->
 <link href="assets/css/style.css" rel="stylesheet" />
 <?php include 'head.php';?>
+<?php include 'header.php';?>
 
 <body>
-
-<!--/<div id="pre-div">
-	<div id="loader"> </div>
-</div>
-. PRELOADER END -->
-
-<?php include 'header.php';?>
 
 <?php
 session_start();
@@ -34,6 +28,19 @@ else{
 }
 ?>
 
+
+<div id="pre-div-main">
+		
+			<img src="images\sideimage3.png" class="sideimage3">
+			<img src="images\sideimage4.png" class="sideimage4">
+
+	<img src="images\Drixel.png" style="position: absolute; top:10%;left:38%; width:300px; ">
+	<p id="loader-text11" >Lecture Videos </p>
+	<div id="loader-main"> </div>
+	<h2 id="loader-text3" >Hold On</h2>
+	<h2 id="loader-text2" >We are Loading Your Course content</h2>
+</div>
+<!--/. PRELOADER END -->
 <?php
     if(isset($_GET["course_id"]))
     {
@@ -130,28 +137,31 @@ if ($user_profile["role"] == "instructor") {
 <?php	
 }
 else { ?>
+
+
 <div id="about" >
 <div class="container">
-	<div class="row text-center">
+	<div class="row text-center " style="  background-image: url('images/lb2.png'); background-size: 100% 100%; background-repeat: no-repeat;" >
 		<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 sub-head">
-			<h2  data-wow-delay="0.3s" class="wow rollIn animated" style="color: #003399"> <strong> <?php echo $course_info["course_name"]; ?> </strong></h2>
-			<p class="sub-head">  <?php echo $course_info["description"]; ?> </p>
+			<br>
+			<h1  data-wow-delay="0.3s" class="wow rollIn animated" style="color: #003399 ;"><strong> <?php echo $course_info["course_name"]; ?> </strong></h1>
+			<p class="sub-head"  id="des-text3">  <?php echo $course_info["description"]; ?> </p>
 		</div>
 	</div>
-	<div class="row pad-top-botm wow flipInX animated" data-wow-delay="0.7s">
+	<!--	<div class="row pad-top-botm wow flipInX animated" data-wow-delay="0.7s">
 		<div class="col-lg-8 col-md-8 col-sm-8 " >
-			<h3><strong>Course Contents</strong></h3>
-			<ul>
+			<h2 style="color: #003399 ;"><strong>Course Contents</strong></h2>
+			<ul id="des-list">
 			<li><?php echo $row[0]["chapter_name"] ?></li>
 			<li><?php echo $row[1]["chapter_name"] ?></li>
 			<li><?php echo $row[2]["chapter_name"] ?></li>
 			<li><?php echo $row[3]["chapter_name"] ?></li>
 			</ul>
 		</div>
-	</div>
+	</div> -->
 	<div class="row">
 		<div class="col-lg-12">
-			<div class="well text-center" style="font-size:1.5em"> Content Provided by &nbsp &nbsp &nbsp <img src="images\youtube.png" width="80px"> &nbsp &nbsp &nbsp <img src="images\nust_logo.png "width="80px"> </div>
+			<div class="well text-center" style="font-size:1.5em"> Content Provided by &nbsp &nbsp &nbsp<img src="images\youtube.png" width="80px">&nbsp &nbsp &nbsp<img src="images\nust_logo.png "width="80px"> </div>
 		</div>
 		<!-- /.col-lg-12 --> 
 	</div>
@@ -159,15 +169,15 @@ else { ?>
 		<div class="overlay">
 			<div class="container">
 				<div class="row text-center">
-					<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
-						<h2 data-wow-delay="0.3s" class="wow rollIn animated"><strong>7 Tips for Successful Online Learners</strong></h2>
+					<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2" style="4px solid blue">
+						<h2 data-wow-delay="0.3s" class="wow rollIn animated" ><strong>7 Tips for Successful Online Learners</strong></h2>
 						<p class="sub-head">An introductory and inspirational video by experts. (Courtesy of Udacity) </p>
 					</div>
 				</div>
 				<div class="row ">
-					<div class="col-lg-6 col-lg-offset-1  col-md-6 col-md-offset-1">
+					<div class="col-lg-6 col-lg-offset-1  col-md-6 col-md-offset-1" >
 						<iframe width="560" height="315" src="https://www.youtube.com/embed/1OGfaT4LvzQ" frameborder="0" allowfullscreen 
-                 class="vedio-style wow rotateIn animated" data-wow-delay="0.4s"></iframe>
+                 class="vedio-style wow rotateIn animated" style="border: 8px solid #009933" data-wow-delay="0.4s"></iframe>
 					</div>
 					<div class="col-lg-4 col-md-4" style="padding-top: 50px;">
 						<div class="media wow rotateIn animated" data-wow-delay="0.5s">
@@ -195,50 +205,51 @@ else { ?>
 		<div class="container">
 			<div class="row text-center ">
 				<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
-					<h2 data-wow-delay="0.3s" class="wow rollIn animated"><strong>Videos </strong></h2>
-					<p class="sub-head">The list contains the video contents of course. </p>
+					<h1 data-wow-delay="0.3s" style="color: #003399" class="wow rollIn animated"><strong>Videos </strong></h1>
+					<h3 class="sub-head" style="color:#404040;">Here is a list of video lectures </h3>
 				</div>
 			</div>
 			<div class="row ">
 				<div class="col-lg-6 col-md-6 col-sm-6 ">
-					<div class="portfolio-item wow rotateIn animated" data-wow-delay="0.4s">
+					<div class="portfolio-item " data-wow-delay="0.4s">
 						<iframe width="560" height="315" src="<?php echo $row[0]["video_link"] ?>" frameborder="0" allowfullscreen 
-                 class="vedio-style wow rotateIn animated" data-wow-delay="0.4s"></iframe>
+                 class="vedio-style " data-wow-delay="0.4s"></iframe>
 					</div>
 					<h3  style="color: #003399"><strong> <?php echo $row[0]["chapter_name"] ?> </strong></h3>
-					<p> <?php echo $row[0]["video_summary"] ?> </p>
+					<p id="des-text2"> <?php echo $row[0]["video_summary"] ?> </p>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 ">
-					<div class="portfolio-item wow rotateIn animated" data-wow-delay="0.5s">
+					<div class="portfolio-item  " data-wow-delay="0.5s">
 						<iframe width="560" height="315" src="<?php echo $row[1]["video_link"] ?>" frameborder="0" allowfullscreen 
-                 class="vedio-style wow rotateIn animated" data-wow-delay="0.4s"></iframe>
+                 class="vedio-style " data-wow-delay="0.4s"></iframe>
 					</div>
 					<h3  style="color: #003399"><strong> <?php echo $row[1]["chapter_name"] ?> </strong></h3>
-					<p> <?php echo $row[1]["video_summary"] ?> </p>
+					<p id="des-text2" > <?php echo $row[1]["video_summary"] ?> </p>
 				</div>
 			</div>
 			<div class="row " style="padding-top: 50px;">
 				<div class="col-lg-6 col-md-6 col-sm-6 ">
-					<div class="portfolio-item wow rotateIn animated" data-wow-delay="0.6s">
+					<div class="portfolio-item  " data-wow-delay="0.6s">
 						<iframe width="560" height="315" src="<?php echo $row[2]["video_link"] ?>" frameborder="0" allowfullscreen 
-                 class="vedio-style wow rotateIn animated" data-wow-delay="0.4s"></iframe>
+                 class="vedio-style  " data-wow-delay="0.4s"></iframe>
 					</div>
 					<h3  style="color: #003399"><strong> <?php echo $row[2]["chapter_name"] ?> </strong></h3>
-					<p> <?php echo $row[2]["video_summary"] ?> </p>
+					<p id="des-text2"> <?php echo $row[2]["video_summary"] ?> </p>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 ">
-					<div class="portfolio-item wow rotateIn animated" data-wow-delay="0.7s">
+					<div class="portfolio-item  " data-wow-delay="0.7s" >
 						<iframe width="560" height="315" src="<?php echo $row[3]["video_link"] ?>" frameborder="0" allowfullscreen 
-                 class="vedio-style wow rotateIn animated" data-wow-delay="0.4s"></iframe>
+                 class="vedio-style  " s data-wow-delay="0.4s"></iframe>
 					</div>
 					<h3  style="color: #003399"><strong> <?php echo $row[3]["chapter_name"] ?> </strong></h3>
-					<p> <?php echo $row[3]["video_summary"] ?> </p>
+					<p id="des-text2"> <?php echo $row[3]["video_summary"] ?> </p>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
+<!--./ GALLERY/PORTFOLIO SECTION END -->
 <?php } ?>
 
 <?php include 'footer.php';?>

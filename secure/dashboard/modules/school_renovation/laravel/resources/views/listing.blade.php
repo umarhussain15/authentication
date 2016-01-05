@@ -48,15 +48,21 @@
                         <a href="http://localhost/authentication/secure/dashboard/rating-api/rating/seller={{$localuser->username}}&buyer={{Auth::user()->localuser->username}}&redirect=www.google.com" ><p class="red rate">Rate User</p></a>
                      @endif
                 </div>
+                <?php 
+                        if($school->amount_required > 0){
+                            $percentage = round(($school->amount_gathered*100)/$school->amount_required);
+                        }else{
+                            $percentage=100;
+                        };
+                        ?>
                 <div class="sidebar">
                     <h2 class="center">Donations</h2>
                     <p><b>Amount Required: </b>{{$school->amount_required}}</p>
                     <p><b>Amount Collected: </b>{{$school->amount_gathered}}</p>
                     <p><b>Remaining: </b>{{$school->amount_required - $school->amount_gathered}}</p>
-                    <p><b>Percentage: </b>{{round(($school->amount_gathered * 100)/$school->amount_required)}}</p>
+                    <p><b>Percentage: </b>{{$percentage}}</p>
                     
                     <div class="progress">
-                        <?php $percentage = round(($school->amount_gathered*100)/$school->amount_required)?>
                       <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{$percentage}}"
                       aria-valuemin="0" aria-valuemax="100" style="width:{{$percentage}}%">
                         {{$percentage}}% Complete (success)
@@ -66,7 +72,7 @@
                 @if($school->amount_gathered != $school->amount_required)
                 <div class="sidebar">
                     <h2 class="center">Want to donate?</h2>
-                    <form action="{{url('payment')}}" method="post">
+                    <form action="{{url('payment')}}" method="get">
                         <input type="number" name="amount" class="form-control amount"/>
                         <input type="hidden" name="school_id" class="form-control amount" value="{{$school->school_id}}"/>
                         <input type="submit" class="btn btn-primary amount" value="Donate"/>
@@ -81,7 +87,7 @@
     </div>
 
 <script type="text/javascript">
-    $.getJSON( "http://localhost/believe/secure/dashboard/rating-api/rating/{{$localuser->username}}", function( data ) {
+    $.getJSON( "http://localhost/authentication/secure/dashboard/rating-api/rating/{{$localuser->username}}", function( data ) {
         if(!isNaN (data.rating)){
             $('#rating_div').html("<b>Rating: </b>" + data.rating + " out of 5");
         }else{

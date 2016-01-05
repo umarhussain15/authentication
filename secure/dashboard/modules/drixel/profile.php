@@ -15,15 +15,12 @@ else{
     // reaching from current directory to _user_info
     require_once __DIR__ . '/../../php/user_info.php';
 	$id = $_SESSION["session_name"];
-//    echo $id;
 	$pk = "delta";
 	$project = "./drixel";
     $user = new UserInfo();
     $result = $user->module_user_id($pk, $project, $id);
 	$array = json_decode($result, true);
 	$user_info = $array["result"][0];
-//    echo $result;
-//    echo $user_info[''];
 }
     require_once 'db_functions.php';
 	$db = new db_functions();

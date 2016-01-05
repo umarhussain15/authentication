@@ -222,8 +222,8 @@
 								/* for db connection | parameters */
 								$servername = "localhost";
 								$username = "root";
-								$password = "";
-								$dbname = "new";
+								$password = "seecs@123";
+								$dbname = "test1";
 
 								// Create connection with the database
 								$conn = new mysqli($servername, $username, $password, $dbname);
@@ -308,8 +308,8 @@
 										/* for db connection | parameters */
 											$servername = "localhost";
 											$username = "root";
-											$password = "";
-											$dbname = "new";
+											$password = "seecs@123";
+											$dbname = "test1";
 
 											// Create connection with the database
 											$conn = new mysqli($servername, $username, $password, $dbname);

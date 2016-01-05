@@ -19,7 +19,10 @@
             //PRE LOADER SCRIPTS
             $(window).load(function () {
                 $("#loader").fadeOut();
+                $("#loader-main").delay(1300).fadeOut();
+                $("#pre-div-main").delay(1900).fadeOut("slow");
                 $("#pre-div").delay(1000).fadeOut("slow");
+                 
             });
 
             // SLIDER SCRIPTS

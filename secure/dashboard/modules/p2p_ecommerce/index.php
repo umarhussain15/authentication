@@ -1,7 +1,7 @@
 <?php
 $response=array();
     $response["success"]=-1;
-session_start();
+/*session_start();
 if (!isset($_SESSION["session_name"])){
     header("Location:../index.php");
   exit();
@@ -11,9 +11,10 @@ else{
     require_once __DIR__ . '/../../php/user_info.php';
     
     $user=new UserInfo();
+
     //echo 
     $user->module_users("delta","./p2p_ecommerce");
-}
+}*/
 //echo json_encode($response);
 ?>
 
@@ -29,6 +30,11 @@ else{
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> 
    <link rel = "stylesheet" href ="css/style.css">
+   <style>
+   .imgback{
+   	background: rgba(1,1,1,0.2);
+   }
+   </style>
 </head>
 
 <body>
@@ -41,16 +47,13 @@ else{
 	    <div>
 	      <ul class="nav navbar-nav">
 	        <li class="active"><a href="index.php">Home</a></li>
-	        <li><a href="#">My Account</a></li>
 	        <li><a href="#">About Us</a></li>
 	        <li><a href="sell.php">Submit Ad</a></li>
-	        <li><a href="sell.php">Sponsored Ad</a></li>
-
 
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">
-	        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-	        <li><a href="index.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	        <li><a href="admin.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+
 	      </ul>
 	    </div>
 	  </div>

@@ -1,0 +1,38 @@
+<?php 
+$con=mysqli_connect('localhost','root','seecs@123','project');
+if(!$con)
+{
+		die( 'Could not connect.');
+}
+else {
+	$query="SELECT * FROM result";
+	$result=mysqli_query($con,$query);
+	if(!$result)
+	 {
+		die( 'Could not connect.');
+	}
+	
+}
+
+?>
+
+
+<html>
+<?php
+	while($row=mysqli_fetch_assoc($result))
+	{
+		echo $row['login']."<br/>";
+		echo $row['test_id']."<br/>";
+		echo $row['score']."<br/>";
+		echo $row['test_date']."<br/>";
+			
+			echo "</hr>";	
+	}
+
+?>
+
+</html>
+
+<?php
+	mysqli_close($con);
+?>

@@ -1,5 +1,9 @@
 @extends('main')
 @section('inner_content')
+@if(isset($message))
+    <p style="color:red;background:white;text-align:center;">{{$message}}</p>
+@endif
+
 <div class="col-md-6 col-md-offset-3">
     <div class="row form white_overlay">
         <h2 class="center">List Your School </h2>

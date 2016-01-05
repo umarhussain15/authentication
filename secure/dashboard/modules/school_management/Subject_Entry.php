@@ -111,11 +111,11 @@ if($opr=="upd")
         <form role="form" data-toggle="validator" method="post" class="form-horizontal">
             <div class="row">
                 <div class="form-group">
-                    <label class="control-label col-sm-3">facultie's Name:</label>
+                    <label class="control-label col-sm-3">Facultie's Name:</label>
                     <div class="col-sm-8">
                         <select name="factxt" class="form-control">
                             <?php
-                            $fac_name=mysql_query("SELECT * FROM facuties_tbl");
+                            $fac_name=mysql_query("SELECT * FROM facuties_tbl WHERE type='teacher' ");
                             while($row=mysql_fetch_array($fac_name)){
                                 if($row['faculties_id']==$rs_upd['faculties_id'])
                                     $iselect="selected";
@@ -191,7 +191,7 @@ else
         <form role="form" data-toggle="validator" method="post" class="form-horizontal">
             <div class="row">
                 <div class="form-group">
-                    <label class="control-label col-sm-3">facultie's Name:</label>
+                    <label class="control-label col-sm-3">Facultie's Name:</label>
                     <div class="col-sm-8">
                         <select name="factxt" class="form-control">
                             <?php
@@ -210,7 +210,7 @@ else
                     <div class="col-sm-8">
                         <select name="techtxt" class="form-control">
                             <?php
-                            $te_name=mysql_query("SELECT * FROM teacher_tbl");
+                            $te_name=mysql_query("SELECT * FROM teacher_tbl where type='teacher'");
                             while($row=mysql_fetch_array($te_name)){
                                 ?>
                                 <option value="<?php echo $row['f_name'] ; echo " "; echo $row['l_name'];?>"> <?php echo $row['f_name'] ; echo " "; echo $row['l_name'];?> </option>

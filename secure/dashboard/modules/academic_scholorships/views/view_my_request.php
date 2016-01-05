@@ -9,7 +9,7 @@ if (!isset($_SESSION["session_name"])){
   exit();
 }
 $id = $_SESSION['session_name'];
-if($_SESSION["is_school"]!=0 && $_SESSION["is_admin"]!=0){
+if($_SESSION["is_school"]!=0 || $_SESSION["is_admin"]!=0){
 
      header("Location:../index.php");
 }

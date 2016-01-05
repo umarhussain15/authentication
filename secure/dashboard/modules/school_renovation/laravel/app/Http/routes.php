@@ -57,6 +57,6 @@ Route::get('listings/delete/{id}','ListingsController@delete');
 Route::get('listings/edit/{id}','ListingsController@edit');
 Route::get('listings/show/{id}','ListingsController@show');
 Route::get('listings/search','ListingsController@search');
-Route::post('payment','ListingsController@pay');
+Route::get('payment','ListingsController@pay');
 Route::post('listings/add','ListingsController@store');
 Route::post('listings/edit','ListingsController@update');

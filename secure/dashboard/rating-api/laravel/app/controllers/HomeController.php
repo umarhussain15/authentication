@@ -137,6 +137,7 @@ class HomeController extends BaseController {
 			$count=$count + 1;
 		}
 		$average = $sum/$count;
+        $average = round($average,2);
 		return Response::json(array('name' => $username, 'rating' => $average));
 		}
 

@@ -35,15 +35,14 @@
 	    <div>
 	      <ul class="nav navbar-nav">
 	        <li class="active"><a href="../index.php">Home</a></li>
-	        <li><a href="#">My Account</a></li>
+	        
 	        <li><a href="#">About Us</a></li>
 	        <li><a href="../sell.php">Submit Ad</a></li>
 	        <!--<li><a href="sponsor_ad.php">Sponsored Ad</a></li>  -->
 
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">
-	        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-	        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	        <li><a href="../admin.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 	      </ul>
 	   </div>
 

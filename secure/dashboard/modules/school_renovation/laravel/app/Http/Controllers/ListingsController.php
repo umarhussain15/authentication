@@ -24,7 +24,7 @@ class ListingsController extends Controller
         if(!Auth::check()){
             Auth::logout();
             $actual_link = "http://$_SERVER[HTTP_HOST]";
-            return Redirect::away($actual_link."/believe/secure/dashboard/logout.php");
+            return Redirect::away($actual_link."/authentication/secure/dashboard/logout.php");
         }
     }
     public function index()
@@ -63,7 +63,7 @@ class ListingsController extends Controller
         $amount_gathered = 0;
         $description = Input::get('description');
         $path="";
-        if (Input::file('picture') !==null && Input::file('picture')->isValid()) {
+        if (Input::file('picture') != null && Input::file('picture')->isValid()) {
           $destinationPath = 'uploads';
           $extension = Input::file('picture')->getClientOriginalExtension();
           $fileName = rand(11111,99999).'.'.$extension; 
@@ -85,7 +85,7 @@ class ListingsController extends Controller
         $school->image_id = $image->image_id;
         $school->save();
         
-        return redirect('listings/add');
+        return view('new_listing')->with('message','Successfully added');
         
     }
 
@@ -152,7 +152,7 @@ class ListingsController extends Controller
         $address = Input::get('address');
         $amount_required = Input::get('amount_required');
         $description = Input::get('description');
-        if (Input::file('picture') !==null && Input::file('picture')->isValid()) {
+        if (Input::file('picture') != null && Input::file('picture')->isValid()) {
           $destinationPath = 'uploads';
           $extension = Input::file('picture')->getClientOriginalExtension();
           $fileName = rand(11111,99999).'.'.$extension; 
@@ -190,7 +190,7 @@ class ListingsController extends Controller
         $school->save();
         
         $actual_link = "http://$_SERVER[HTTP_HOST]";
-        return Redirect::away($actual_link."/believe/secure/dashboard/payment-api?amount=".$amount);
+        return Redirect::away($actual_link."/authentication/secure/dashboard/payment-api?amount=".$amount);
     }
     /**
      * Remove the specified resource from storage.

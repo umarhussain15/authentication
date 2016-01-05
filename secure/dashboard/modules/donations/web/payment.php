@@ -3,6 +3,12 @@ require_once 'common.php';
 $amount_entered = $_POST["amount"] * 100;
 $custom_message = "Amount for donation module";
 
+if (!isset($_SESSION["session_name"])) {
+     
+    header("Location:../../../portal.php");
+    exit();   
+}
+
 ?>
 <?php 
     include "../donor_header_footer.php";

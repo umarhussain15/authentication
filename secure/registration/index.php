@@ -32,7 +32,7 @@
                             <legend><i class="fa fa-user"></i> Register</legend>
                             <div class="row hidden" ng-show="attmsuccess" ng-class="{hidden:!attmsuccess}">
                                 <div class="col-md-12">
-                                    <div class="alert alert-success" style="display:none;">
+                                    <div class="alert alert-success" >
                                         <strong>Success!</strong> {{result}}
                                     </div>
                                 </div>
@@ -40,7 +40,7 @@
 
                             <div class="row hidden" ng-show="attmfailure" ng-class="{hidden:!attmfailure}">
                                 <div class="col-md-12">
-                                    <div class="alert alert-danger" style="display:none;">
+                                    <div class="alert alert-danger" >
                                         <strong>Failure!</strong> {{result}}
                                     </div>
                                 </div>

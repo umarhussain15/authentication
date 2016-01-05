@@ -19,7 +19,13 @@
                             <p>{{$school->description}}</p>
                             <div class="listing_footer">
                                 <div class="progress">
-                                    <?php $percentage = round(($school->amount_gathered*100)/$school->amount_required)?>
+                                    <?php 
+                                    if($school->amount_required > 0){
+                                        $percentage = round(($school->amount_gathered*100)/$school->amount_required);
+                                    }else{
+                                        $percentage=100;
+                                    };
+                                    ?>
                                   <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{$percentage}}"
                                   aria-valuemin="0" aria-valuemax="100" style="width:{{$percentage}}%">
                                     {{$percentage}}% Complete (success)

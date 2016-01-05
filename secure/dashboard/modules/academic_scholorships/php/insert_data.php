@@ -26,7 +26,7 @@ class InsertData{
   $website = filter_var($pk['website'], FILTER_SANITIZE_STRING);
   $username = filter_var($pk['username'], FILTER_SANITIZE_STRING);
   $password = filter_var($pk['password'], FILTER_SANITIZE_STRING);
-        
+       $password=sha1($password); 
         
         $response["success"]=-1;
         $db_c=$this->db->connect("userdata");

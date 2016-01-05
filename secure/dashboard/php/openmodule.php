@@ -23,9 +23,24 @@ if (preg_match('/\s/',$_POST["url"])){
         echo json_encode($response);
         exit();
     }
+    
 //    $url=addslashes($url);
     $db= new DB_CONNECT();
     $db_c= $db->connect("userdata");
+    if($url=="./p2p_ecommerce"){
+        $qry= $db_c->prepare("SELECT * from hw_users where  user_id=?");
+    // fist argument tells format of each parameter
+        $qry->bind_param("s",$_ID);
+        $qry->execute();
+        $result=$qry->get_result();
+    //    echo $_ID;
+        if(mysqli_num_rows($result) == 1){
+               $row = mysqli_fetch_array($result);
+            if($row['isadmin']==1){
+                $_SESSION['hw_user_chk']=1;
+            }
+        }
+    }
     $qry= $db_c->prepare("SELECT * from registered_modules where  user_id=? AND module_id=?");
     // fist argument tells format of each parameter
     $qry->bind_param("ss",$_ID,$url);
@@ -33,6 +48,9 @@ if (preg_match('/\s/',$_POST["url"])){
     $result=$qry->get_result();
 //    echo $_ID;
     if(mysqli_num_rows($result) == 1){
+        
+//        if ()
+//        $qry= $db_c->prepare("SELECT * from registered_modules where  user_id=? AND module_id=?");
         
         $response["success"]=1;
        $response["redirect"]="./modules/".stripslashes($url);

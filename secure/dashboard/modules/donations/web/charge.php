@@ -1,6 +1,13 @@
 <?php
 
 require_once 'common.php';
+//            $_SESSION["user_id"] = $qry->insert_id;
+if (!isset($_SESSION["session_name"])) {
+     
+    header("Location:../../../portal.php");
+    exit();   
+}
+
 include "../db_config_values.php";
 $var_value = $_POST['amount'];
 $custom_message = $_POST['custom_mess'];

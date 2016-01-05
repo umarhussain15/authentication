@@ -1,17 +1,17 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-	<div class="container"> 
+<nav class="navbar navbar-inverse navbar-fixed-top" style="max-height:10px;" role="navigation">
+	<div class="container" > 
 		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
+		<div class="navbar-header" >
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-			<a class="navbar-brand" href="index.php"> <img src="images\Drixel.png" alt="" style="width:150px"> </a> </div>
+			<a class="navbar-brand" href="index.php"> <img src="images\Drixel.png" class="navbar-logo" alt="" > </a> </div>
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li> <a href="courses.php" style="font-size:1.2em">Courses</a> </li>
-				<li> <a href="profile.php" style="font-size:1.2em">Account</a> </li>
+				<li> <a href="courses.php" style="font-size:1.3em">Courses</a> </li>
+				<li> <a href="profile.php" style="font-size:1.3em">Account</a> </li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="../index.php"> <i class="glyphicon glyphicon-log-out"></i> Log Out</a> </li>
+				<li><a href="../index.php" style="font-size:1.3em"> <i class="glyphicon glyphicon-log-out"></i> Back to Portal</a> </li>
 			</ul>
 		</div>
 		<!-- /.navbar-collapse --> 

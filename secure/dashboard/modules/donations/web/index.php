@@ -1,5 +1,11 @@
 <?php
 require_once 'common.php';
+
+if (!isset($_SESSION["session_name"])) {
+     
+    header("Location:../../../portal.php");
+    exit();   
+}
 ?>
 
 <html>

@@ -8,6 +8,18 @@
 
 <?php include 'header.php';?>
 
+<div id="pre-div-main">
+		<p id="loader-text1" >WELCOME TO </p>
+			<img src="images\sideimage3.png" style="position: absolute; top:20%; width:125px; ">
+			<img src="images\sideimage4.png" style="position: absolute; top:20%; left:90%; width:125px; ">
+
+	<img src="images\Drixel.png" style="position: absolute; top:20%;left:30%; width:500px; ">
+	<div id="loader-main"> </div>
+	<h2 id="loader-text2" >Learn with us. Anytime! Anywhere!</h2>
+</div>
+
+
+
 <!-- Page Content -->
 <div class="container"> 
 	
@@ -15,20 +27,24 @@
 	<div class="row">
 		<div class="col-md-8"  id="slider">
 			<figure> <span class="slider-text">
-				<h1 style="color: #003399">Learn any Course you want!</h1>
-				<h4 style="line-height: 180%; font-style:italic"> &nbsp  New skills and knowledge makes you a more valuable employee. DRIXEL is for anyone taking their first step to a new or better job. <span style="color: #003399; font-size:1.4em"><br>
+				<h1 style="color: #4D4D4D">Learn any Course you want!</h1>
+				<h4 style="line-height: 180%; font-style:italic"> &nbsp  New skills and knowledge makes you a more valuable employee.
+				 DRIXEL is for anyone taking their first step to a new or better job. We have a lot to offer you in various fields.
+				  <span style="color: #4D4D4D; font-size:1.4em"><br>
 					Come join us! </span> </h4>
-				</span> <a class="btn btn-primary slider-btn" href="courses.php">View Course List</a><img class="img-responsive img-rounded" src="images\slider_image22.png" alt=""> </figure>
+				</span> <a class="btn btn-primary slider-btn btn-lg" href="courses.php">Browse List</a><img class="img-responsive img-rounded" src="images\slider_image22.png" alt=""> </figure>
 			<figure> <span class="slider-text" >
-				<h1 style="color: #003399">Introduction to Android Development</h1>
-				<h4 style="line-height: 180%; font-style:italic; color:white"> &nbsp  Android provides a rich application framework that allows you to build innovative apps and games for mobile devices in a Java language environment. <span style="color: #003399; font-size:1.5em"><br>
+				<h1 style="color: #9BCF22">Introduction to Android Development</h1>
+				<h4 style="line-height: 180%; font-style:italic; color:white"> &nbsp  Android provides a rich application framework
+				 that allows you to build innovative apps and games for mobile devices in a Java language environment.
+				  <span style="color: #9BCF22; font-size:1.5em"><br>
 					Take a look! &nbsp &nbsp</span> </h4>
-				</span> <a class="btn btn-primary slider-btn" href="course_detail.php?course_id=1">View Course</a><img class="img-responsive img-rounded" src="images\slider_image3.png" alt=""> </figure>
+				</span> <a class="btn btn-primary slider-btn btn-lg" href="course_detail.php?course_id=1" >View Course</a><img class="img-responsive img-rounded" src="images\slider_image3.png" alt=""> </figure>
 			<figure> <span class="slider-text">
 				<h1 style="color: #003399">Database Management</h1>
 				<h4 style="line-height: 180%; font-style:italic"> &nbsp  Its amazing how much data is now being collected, stored, analyzed and acted on. learn to design databases for storing, accessing and analyzing large data. <span style="color: #003399; font-size:1.4em"><br>
 					Implementation of DBMS </span> </h4>
-				</span> <a class="btn btn-primary slider-btn" href="course_detail.php?course_id=2">View Course</a><img class="img-responsive img-rounded" src="images\slider_image11.png" alt=""> </figure>
+				</span> <a class="btn btn-primary slider-btn btn-lg" href="course_detail.php?course_id=2">View Course</a><img class="img-responsive img-rounded" src="images\slider_image11.png" alt=""> </figure>
 			<figure> <span class="slider-text">
 				<h1 style="color: #003399">Online Education</h1>
 				<h4 style="line-height: 180%; font-style:italic"> &nbsp  Whatever you want to study, we’re sure to have the right course for you.
@@ -38,15 +54,18 @@
 				</span> <img class="img-responsive img-rounded" src="images\slider_image2.png" alt=""> </figure>
 			<figure> <span class="slider-text">
 				<h1 style="color: #003399">Learn any Course you want!</h1>
-				<h4 style="line-height: 180%; font-style:italic"> &nbsp  New skills and knowledge makes you a more valuable employee. DRIXEL is for anyone taking their first step to a new or better job. <span style="color: #003399; font-size:1.4em"><br>
+				<h4 style="line-height: 180%; font-style:italic"> &nbsp  New skills and knowledge makes you a more valuable employee.
+				 DRIXEL is for anyone taking their first step to a new or better job. We have a lot to offer you in various fields.
+				 <span style="color: #003399; font-size:1.4em"><br>
 					Come join us! </span> </h4>
-				</span> <a class="btn btn-primary slider-btn" href="#">View Course List</a><img class="img-responsive img-rounded" src="images\slider_image22.png" alt=""> </figure>
+				</span> <a class="btn btn-primary slider-btn btn-lg" href="courses.php">Browse List</a><img class="img-responsive img-rounded" src="images\slider_image22.png" alt=""> </figure>
 		</div>
 		<!-- /.col-md-8 -->
 		<div class="col-md-4 container">
   <div class="lead text-left">
+  			<br>
 			<h1>DRIXEL (Our Vision)</h1>
-			<p>This initiative by NUST aims at expanding the circle of knowledge by making it available to everyone beyond the walls of the institution. For all those who can't get into universities, join us here. We have a variety of courses, You just need to enroll. Besides traditional fields of Engineering, IT, Medicine, Natural and Basic Sciences, we envisage exploring and initiating higher education in all disciplines. </p>
+			<p style="font-size:18px">This initiative by NUST aims at expanding the circle of knowledge by making it available to everyone beyond the walls of the institution. For all those who can't get into universities, join us here. We have a variety of courses, You just need to enroll. Besides traditional fields of Engineering, IT, Medicine, Natural and Basic Sciences, we envisage exploring and initiating higher education in all disciplines. </p>
 			<br>
 			</div>
 		<!-- /.col-md-4 --> 
@@ -99,5 +118,7 @@
 
 <!-- Bootstrap Core JavaScript --> 
 <script src="js/bootstrap.min.js"></script>
+<script src="assets/js/custom.js"></script>
+<script src="js/jquery-1.10.2.js"></script> 
 </body>
 </html>
