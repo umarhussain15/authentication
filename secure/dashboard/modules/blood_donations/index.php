@@ -6,22 +6,7 @@ if (!isset($_SESSION["session_name"])){
     header("Location:../index.php");
   exit();
 }
-else{
-    // reaching from current directory to _user_info
-    require_once __DIR__ . '/../../php/user_info.php';
-    
-    $user=new UserInfo();
-    $tt= $user->module_user_id("delta","./blood_donations",$_SESSION["session_name"]);
-//    echo $tt;
-    if ($tt['result']["role"]==1){
-        header("Location:./member.php");
-  exit();
-    }
-    else if($tt['result']["role"]==0){
-        header("Location:./donor_registration.php");
-        exit();
-    }
-}
+
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
