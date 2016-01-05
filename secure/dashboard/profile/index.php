@@ -1,6 +1,7 @@
 <?php
 	include("conn.php");
-    session_start();
+	session_start();
+	//$_SESSION['session_name'] = 2; /* DEBUG */
 	$user_found = false;
 ?>
 
@@ -13,6 +14,7 @@
     <title>Viewing Profile</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/master-ui.css" rel="stylesheet">
+	<link href="comments/css/style.css" rel="stylesheet">
 	<style>
 		body {
 			margin-top: 80px;
@@ -34,7 +36,6 @@
 	<?php include("includes/nav.php"); ?>
   
 	<div class="container">
-		<div class="row">
 		<?php if(!isset($_GET['id'])) : ?>
 			<?php
 				$sql = "select * from profile_users where user_id = ".$_SESSION['session_name']; /* DEBUG */
@@ -60,28 +61,35 @@
 				} 
 			?>
 			<?php if($user_found) : ?>
-				<div class="col-md-2">				
-					<a href="#" class="thumbnail">
-						<?php if(file_exists("profpics/".$_SESSION['session_name'])): /* DEBUG */?>
-							<img src="profpics/<?php echo $_SESSION['session_name']; /* DEBUG */ ?>">
-						<?php else: ?>
-							<img src="profpics/dp.png">
-						<?php endif; ?>
-					</a>
+				<div class="row">			
+					<div class="col-md-2">				
+						<a href="#" class="thumbnail">
+							<?php if(file_exists("profpics/".$_SESSION['session_name'])):?>
+								<img src="profpics/<?php echo $_SESSION['session_name'];?>">
+							<?php else: ?>
+								<img src="profpics/dp.png">
+							<?php endif; ?>
+						</a>
+					</div>
+					<div class="col-md-10">	
+						<h1><?php echo $myrow['name']; ?></h1>
+						<div class="row">	
+							<div class="col-md-3">	
+								<p><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <?php echo $myrow['gender']; ?></p>
+								<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Lives in <?php echo $myrow['location']; ?></p>
+								<p><span class="glyphicon glyphicon-tint" aria-hidden="true"></span> Blood group <?php echo $myrow['bloodgroup']; ?></p>
+							</div>
+							<div class="col-md-3">
+								<p><span class="glyphicon glyphicon-gift" aria-hidden="true"></span> Birthday <?php echo $myrow['birthday']; ?></p>
+								<p><span class="glyphicon glyphicon-book" aria-hidden="true"></span> <?php echo $myrow['education']; ?></p>
+								<p><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> <?php echo $myrow['likes']; ?></p>
+							</div>
+						</div>
+					</div>
 				</div>
-				<div class="col-md-10">	
-					<h1><?php echo $myrow['name']; ?></h1>
-					<div class="row">	
-						<div class="col-md-3">	
-							<p><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <?php echo $myrow['gender']; ?></p>
-							<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Lives in <?php echo $myrow['location']; ?></p>
-							<p><span class="glyphicon glyphicon-tint" aria-hidden="true"></span> Blood group <?php echo $myrow['bloodgroup']; ?></p>
-						</div>
-						<div class="col-md-3">
-							<p><span class="glyphicon glyphicon-gift" aria-hidden="true"></span> Birthday <?php echo $myrow['birthday']; ?></p>
-							<p><span class="glyphicon glyphicon-book" aria-hidden="true"></span> <?php echo $myrow['education']; ?></p>
-							<p><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> <?php echo $myrow['likes']; ?>n</p>
-						</div>
+				<div class="row">
+					<div class="col-md-12">
+						<?php include("comments/comments.php"); ?>
 					</div>
 				</div>
 			<?php else: ?>
@@ -121,28 +129,35 @@
 				} 
 			?>
 			<?php if($user_found) : ?>
-				<div class="col-md-2">				
-					<a href="#" class="thumbnail">
-						<?php if(file_exists("profpics/".$_GET['id'])): ?>
-							<img src="profpics/<?php echo $_GET['id']; ?>">
-						<?php else: ?>
-							<img src="profpics/dp.png">
-						<?php endif; ?>
-					</a>
+				<div class="row">				
+					<div class="col-md-2">				
+						<a href="#" class="thumbnail">
+							<?php if(file_exists("profpics/".$_GET['id'])): ?>
+								<img src="profpics/<?php echo $_GET['id']; ?>">
+							<?php else: ?>
+								<img src="profpics/dp.png">
+							<?php endif; ?>
+						</a>
+					</div>
+					<div class="col-md-10">	
+						<h1><?php echo $myrow['name']; ?></h1>
+						<div class="row">	
+							<div class="col-md-3">	
+								<p><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <?php echo $myrow['gender']; ?></p>
+								<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Lives in <?php echo $myrow['location']; ?></p>
+								<p><span class="glyphicon glyphicon-tint" aria-hidden="true"></span> Blood group <?php echo $myrow['bloodgroup']; ?></p>
+							</div>
+							<div class="col-md-3">
+								<p><span class="glyphicon glyphicon-gift" aria-hidden="true"></span> Birthday <?php echo $myrow['birthday']; ?></p>
+								<p><span class="glyphicon glyphicon-book" aria-hidden="true"></span> <?php echo $myrow['education']; ?></p>
+								<p><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> <?php echo $myrow['likes']; ?>n</p>
+							</div>
+						</div>
+					</div>
 				</div>
-				<div class="col-md-10">	
-					<h1><?php echo $myrow['name']; ?></h1>
-					<div class="row">	
-						<div class="col-md-3">	
-							<p><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <?php echo $myrow['gender']; ?></p>
-							<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Lives in <?php echo $myrow['location']; ?></p>
-							<p><span class="glyphicon glyphicon-tint" aria-hidden="true"></span> Blood group <?php echo $myrow['bloodgroup']; ?></p>
-						</div>
-						<div class="col-md-3">
-							<p><span class="glyphicon glyphicon-gift" aria-hidden="true"></span> Birthday <?php echo $myrow['birthday']; ?></p>
-							<p><span class="glyphicon glyphicon-book" aria-hidden="true"></span> <?php echo $myrow['education']; ?></p>
-							<p><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> <?php echo $myrow['likes']; ?>n</p>
-						</div>
+				<div class="row">
+					<div class="col-md-12">
+						<?php include("comments/comments_other.php"); ?>
 					</div>
 				</div>
 			<?php else: ?>
@@ -158,7 +173,6 @@
 				</div>
 			<?php endif; ?>
 		<?php endif; ?>
-		</div>
 	</div>
 
     <script src="js/jquery.min.js"></script>

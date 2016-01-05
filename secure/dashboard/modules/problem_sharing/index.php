@@ -19,7 +19,7 @@
 |
 */
 
-require __DIR__.'/../../_problem_sharing/bootstrap/autoload.php';
+require __DIR__.'/../../../../../_problem_sharing/bootstrap/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +33,7 @@ require __DIR__.'/../../_problem_sharing/bootstrap/autoload.php';
 |
 */
 
-$app = require_once __DIR__.'/../../_problem_sharing/bootstrap/app.php';
+$app = require_once __DIR__.'/../../../../../_problem_sharing/bootstrap/app.php';
 /*
 |--------------------------------------------------------------------------
 | Run The Application

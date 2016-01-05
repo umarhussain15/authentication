@@ -8,7 +8,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					  </button>
-					  <a class="navbar-brand" href="#">Web Project</a>
+					  <a class="navbar-brand" href="../">belive.</a>
 					</div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->

@@ -67,6 +67,7 @@
                 </div>
                 <div class="navbar-collapse collapse" id="navbar-main">
                     <ul class="nav navbar-nav navbar-right" style="margin-top:10px;">
+                        <li><a href="./profile"><i class="fa fa-user"></i> Profile</a></li>
                         <li><a href="logout.php"><i class="fa fa-power-off"></i> Sign Out</a></li>
                     </ul>
                 </div>
