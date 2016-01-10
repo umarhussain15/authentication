@@ -29,14 +29,14 @@ class MessageTableSeeder extends Seeder
     	'sent_date' => $date
   	]);
 
-  	$ngo = Ngo::where('ngo_email', 'doublea@gmail.com')->get()->first();
+  	// $ngo = Ngo::where('ngo_email', 'doublea@gmail.com')->get()->first();
 
-  	Message::create([
-    	'user_id' => $ngo->user_id,
-    	'sender' => 'chibi_loli',
-    	'message_subject' => 'Mooo.',
-    	'message_body' => 'Don\'t get the wrong idea. DoubleA.',
-    	'sent_date' => $date
-  	]);
+  	// Message::create([
+   //  	'user_id' => $ngo->user_id,
+   //  	'sender' => 'chibi_loli',
+   //  	'message_subject' => 'Mooo.',
+   //  	'message_body' => 'Don\'t get the wrong idea. DoubleA.',
+   //  	'sent_date' => $date
+  	// ]);
   }
 }

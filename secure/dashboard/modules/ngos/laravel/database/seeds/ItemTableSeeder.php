@@ -61,46 +61,46 @@ class ItemTableSeeder extends Seeder
     	'item_worth' => 15
   	]);
 
-    $cause = Cause::where('cause_title', 
-    	'Flood Donation PK')->get()->first();
+   //  $cause = Cause::where('cause_title', 
+   //  	'Flood Donation PK')->get()->first();
 
-    Item::create([
-    	'cause_id' => $cause->cause_id,
-    	'item_name' => 'blanket',
-    	'item_description' => 'for flood donation',
-    	'item_required' => 500,
-    	'item_received' => 322,
-    	'item_worth' => 12
-  	]);
+   //  Item::create([
+   //  	'cause_id' => $cause->cause_id,
+   //  	'item_name' => 'blanket',
+   //  	'item_description' => 'for flood donation',
+   //  	'item_required' => 500,
+   //  	'item_received' => 322,
+   //  	'item_worth' => 12
+  	// ]);
 
-  	Item::create([
-  		'cause_id' => $cause->cause_id,
-    	'item_name' => 'clothes',
-    	'item_description' => 'for flood donation',
-    	'item_required' => 900,
-    	'item_received' => 545,
-    	'item_worth' => 15
-  	]);
+  	// Item::create([
+  	// 	'cause_id' => $cause->cause_id,
+   //  	'item_name' => 'clothes',
+   //  	'item_description' => 'for flood donation',
+   //  	'item_required' => 900,
+   //  	'item_received' => 545,
+   //  	'item_worth' => 15
+  	// ]);
 
-    $cause = Cause::where('cause_title', 
-    	'Earthquake PK')->get()->first();
+   //  $cause = Cause::where('cause_title', 
+   //  	'Earthquake PK')->get()->first();
 
-    Item::create([
-    	'cause_id' => $cause->cause_id,
-    	'item_name' => 'cash',
-    	'item_description' => 'for earthquake',
-    	'item_required' => 500000,
-    	'item_received' => 123410,
-    	'item_worth' => 1
-  	]);
+   //  Item::create([
+   //  	'cause_id' => $cause->cause_id,
+   //  	'item_name' => 'cash',
+   //  	'item_description' => 'for earthquake',
+   //  	'item_required' => 500000,
+   //  	'item_received' => 123410,
+   //  	'item_worth' => 1
+  	// ]);
 
-  	Item::create([
-  		'cause_id' => $cause->cause_id,
-    	'item_name' => 'clothes',
-    	'item_description' => 'for earthquake',
-    	'item_required' => 100,
-    	'item_received' => 67,
-    	'item_worth' => 15
-  	]);
+  	// Item::create([
+  	// 	'cause_id' => $cause->cause_id,
+   //  	'item_name' => 'clothes',
+   //  	'item_description' => 'for earthquake',
+   //  	'item_required' => 100,
+   //  	'item_received' => 67,
+   //  	'item_worth' => 15
+  	// ]);
   }
 }

@@ -165,7 +165,7 @@
 				<div class="container">
 						<div class="panel panel-default panel-info">
 						
-							<div class="panel-heading"><h3 class="panel-title"></h3></div>
+<!--							<div class="panel-heading"><h3 class="panel-title"></h3></div>-->
 							<div class="panel-body">
 								<p>
 								<?php
@@ -202,7 +202,7 @@
 								</p>	
 					
 							</div>
-							<div class="panel-footer"> </div>
+<!--							<div class="panel-footer"> </div>-->
 						</div>
 					
 					</div>
@@ -214,9 +214,11 @@
 
         <div class="col-md-9">
             <div class="panel panel-default">
+<!--
                 <div class="panel-heading">
                     <h3 class=""></h3>
                 </div>
+-->
                 <div class="panel-body"><p id="poultry">
 							<?php
 								/* for db connection | parameters */
@@ -234,10 +236,10 @@
 
 								// retrieve role from here
 								mysqli_query($conn, "SET NAMES 'utf8'");
-								$query = "SELECT category, name, definition, cause, transmission, symptoms, postmortem_exam, diagnosis, treatment, prevention, publication_date from disease"; // orderby date_published
+								$query = "SELECT  name, definition, cause, transmission, symptoms, postmortem_exam, diagnosis, treatment, prevention from disease"; // orderby date_published
 								$result = mysqli_query($conn, $query);
 								while($row = mysqli_fetch_array($result)) {
-									$category = $row['category'];
+//									$category = $row['category'];
 									$name = $row['name'];
 									$def = $row['definition'];
 									$cause = $row['cause'];
@@ -247,9 +249,9 @@
 									$diagnosis = $row['diagnosis'];
 									$treatment = $row['treatment'];
 									$prevention = $row['prevention'];
-									$publication = $row['publication_date'];
+//									$publication = $row['publication_date'];
 
-									echo "$category<br>$name<br>$def<br>$cause<br>$transmission<br>$symptoms<br>$postmortem_examination<br>$diagnosis<br>$treatment<br>$prevention<br>$publication<br>";
+									echo "$name<br>$def<br>$cause<br>$transmission<br>$symptoms<br>$postmortem_examination<br>$diagnosis<br>$treatment<br>$prevention<br>";
 									} 
 								$conn->close();
 								?>	
@@ -262,9 +264,11 @@
         </div>
         <div class="col-md-3">
             <div class="panel panel-default">
+<!--
                 <div class="panel-heading">
                     <h3 class=""></h3>
                 </div>
+-->
                 <div class="panel-body">
 				
 				<p>
@@ -464,9 +468,11 @@
 			</div>
 		</div>
 			
+<!--
 		<footer>
 		</footer>
 				
+-->
 				
 				
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

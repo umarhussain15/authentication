@@ -1,6 +1,6 @@
 <?php
 
-$con=mysqli_connect("localhost","root","seecs@123","school_mng");
+$con=mysqli_connect("localhost","root","seecs@123","test1");
 
 	$msg="";
 	$opr="";
@@ -23,12 +23,13 @@ if(isset($_POST['btn_sub'])){
 	$married=$_POST['marriedrdo'];
 	$phone=$_POST['phonetxt'];
 	$mail=$_POST['emailtxt'];
-    $password=$_POST['password'];
+ 
     
     $role = 'Teacher';
+	$username = $f_name.$l_name."_".substr($phone,0,2);
     
-       // $query = "INSERT INTO users_tbl VALUES('','$l_name','$role')";
-      //  mysqli_query($con,$query);
+        $query = "INSERT INTO users_tbl VALUES('','$username','teacher','1')";
+        mysqli_query($con,$query);
     
 	
 $sql_ins=mysql_query("INSERT INTO teacher_tbl VALUES( NULL,'$f_name','$l_name' ,'$gender','$dob','$addr','$degree','$salary' ,'$married','$phone','$mail','$role')");
@@ -219,12 +220,7 @@ else
                     </div>
                 </div>
                 
-                <div class="form-group">
-                    <label for="password" class="control-label col-sm-3">Password</label>
-                    <div class="col-sm-8">
-                        <input type="password" class="form-control" id="password" name="password"  placeholder="Password" required>
-                    </div>
-                </div>
+             
                 
                 <div class="form-group">
                     <label for="genderrdo" class="control-label col-sm-3">Gender:</label>

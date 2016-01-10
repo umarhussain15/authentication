@@ -26,7 +26,7 @@ class InsertData{
   $website = filter_var($pk['website'], FILTER_SANITIZE_STRING);
   $username = filter_var($pk['username'], FILTER_SANITIZE_STRING);
   $password = filter_var($pk['password'], FILTER_SANITIZE_STRING);
-       $password=sha1($password); 
+        $password = sha1($password);
         
         $response["success"]=-1;
         $db_c=$this->db->connect("userdata");
@@ -147,7 +147,9 @@ class InsertData{
           $store['don_status'] = $row['don_status'];
           $store['don_msg'] = $row['don_msg'];
           $store['don_amount'] = $row['don_amount'];
-
+          $store['don_email'] = $row['don_email'];
+          $store['don_contact'] = $row['don_contact'];
+$store['paid'] = $row['paid'];
         
           $store['full_name'] = $row['full_name'];
           $store['father_name'] = $row['father_name'];
@@ -294,8 +296,7 @@ class InsertData{
         return json_encode($response);
     }
     
-    
-function approve_donation($kk,$id){
+function delete_donation($kk,$id){
 
         $response=array();
         if($kk!=$this->pass){
@@ -308,7 +309,36 @@ function approve_donation($kk,$id){
         $response["success"]=-1;
         $db_c=$this->db->connect("userdata");
         
-        $qry = $db_c->prepare("UPDATE sch_donations SET don_status = '1' WHERE don_id='$id'");
+        $qry = $db_c->prepare("DELETE FROM sch_donations WHERE don_id='$id'");
+           if(!$qry)
+            echo "prepare error".$qry;
+
+      if($qry->execute()){
+            
+                $response["success"]=1;     
+                
+            }
+         
+            
+    
+        $this->db->disconnect($db_c);// wrapper function in db_connect.php
+        return json_encode($response);
+    }
+
+
+
+
+    function after_payment($kk,$id){
+ $response=array();
+        if($kk!=$this->pass){
+            $response["success"]=-2;
+            return json_encode($response);
+        }
+
+           $response["success"]=-1;
+        $db_c=$this->db->connect("userdata");
+        
+        $qry = $db_c->prepare("UPDATE sch_donations SET paid = '1' WHERE don_id='$id'");
            if(!$qry)
             echo "prepare error".$qry;
 
@@ -317,15 +347,17 @@ function approve_donation($kk,$id){
                 $response["success"]=1;     
                 
             }
-         
-         $qry = $db_c->prepare("SELECT user_id from sch_donations WHERE don_id='$id'");
+
+
+
+        $qry = $db_c->prepare("SELECT user_id from sch_donations WHERE don_id='$id'");
            if(!$qry)
             echo "prepare error".$qry;
 
          if($qry->execute()){
             
             $result=$qry->get_result();
-            $response["result"]=array();
+         
             $cnt=0;
             if(mysqli_num_rows($result)>0){
                 $response["success"]=1;
@@ -344,7 +376,7 @@ function approve_donation($kk,$id){
          if($qry->execute()){
             
             $result=$qry->get_result();
-            $response["result"]=array();
+           
             $cnt=0;
             if(mysqli_num_rows($result)>0){
                 $response["success"]=1;
@@ -370,7 +402,74 @@ function approve_donation($kk,$id){
                 $response["success"]=1;     
                 
             }
+            
+        $this->db->disconnect($db_c);// wrapper function in db_connect.php
+        return json_encode($response);
+    }
+function approve_donation($kk,$id){
 
+        $response=array();
+        if($kk!=$this->pass){
+            $response["success"]=-2;
+            return json_encode($response);
+        }
+       
+   
+        
+        $response["success"]=-1;
+        $db_c=$this->db->connect("userdata");
+        
+        $qry = $db_c->prepare("UPDATE sch_donations SET don_status = '1' WHERE don_id='$id'");
+           if(!$qry)
+            echo "prepare error".$qry;
+
+        if($qry->execute()){
+            
+                $response["success"]=1;     
+                
+            }
+
+              $qry = $db_c->prepare("SELECT req_id FROM sch_donations WHERE don_id='$id'");
+           if(!$qry)
+            echo "prepare error".$qry;
+
+        if($qry->execute()){
+            
+            $result=$qry->get_result();
+           
+          
+            if(mysqli_num_rows($result)>0){
+                $response["success"]=1;
+                $row = mysqli_fetch_array($result);
+                 
+                 $req = $row['req_id'];
+                 
+           }
+           }    
+              
+           $qry = $db_c->prepare("SELECT req_status FROM sch_requests WHERE req_id='$req'");
+           if(!$qry)
+            echo "prepare error".$qry;
+
+        if($qry->execute()){
+            
+            $result=$qry->get_result();
+          
+          
+            if(mysqli_num_rows($result)>0){
+                $response["success"]=1;
+                $row = mysqli_fetch_array($result);
+                 
+                 $req_status = $row['req_status'];
+                 
+           
+           }   
+                
+            }
+            if($req_status!=1){$this->approve_request("delta",$req);}
+         /*
+         
+*/
 
         $this->db->disconnect($db_c);// wrapper function in db_connect.php
         return json_encode($response);
@@ -401,7 +500,7 @@ function approve_donation($kk,$id){
                 $response["success"]=1;     
                 
             }
-         
+         /*
           
  $qry = $db_c->prepare("SELECT user_id from sch_donations WHERE don_id='$id'");
            if(!$qry)
@@ -457,8 +556,7 @@ function approve_donation($kk,$id){
             }
 
 
-
-    
+*/
         $this->db->disconnect($db_c);// wrapper function in db_connect.php
         return json_encode($response);
     }
@@ -956,7 +1054,7 @@ function get_school_donations($kk,$school){
 
 
 
-        $qry= $db_c->prepare("SELECT sch_donations.req_id,sch_donations.user_id, don_id,don_status,don_time, don_email,don_contact,don_msg, don_amount,req_time, full_name, father_name, age,gender,approx_amount, course_degree,rating,username,req_status from sch_donations join sch_requests using (req_id) join user_details join sch_users where sch_donations.user_id = user_details.user_id and sch_donations.user_id = sch_users.user_id and sch_requests.school_name='$school_id'");
+        $qry= $db_c->prepare("SELECT sch_donations.req_id,sch_donations.user_id,paid, don_id,don_status,don_time, don_email,don_contact,don_msg, don_amount,req_time, full_name, father_name, age,gender,approx_amount, course_degree,rating,username,req_status from sch_donations join sch_requests using (req_id) join user_details join sch_users where sch_donations.user_id = user_details.user_id and sch_donations.user_id = sch_users.user_id and sch_requests.school_name='$school_id'");
         if(!$qry)
             echo "prepare error".$qry;
 
@@ -979,7 +1077,7 @@ function get_school_donations($kk,$school){
           $store['don_contact'] = $row['don_contact'];
           $store['don_amount'] = $row['don_amount'];
           $store['don_msg'] = $row['don_msg'];
-
+$store['paid'] = $row['paid'];
           $store['req_id'] = $row['req_id'];
           $store['req_status'] = $row['req_status'];
           $store['req_time'] = $row['req_time'];
@@ -1151,7 +1249,7 @@ function get_request($kk,$id){
                 $store["school_website"]=$row["school_website"];
                  $store["username"]=$row["username"];
                  $store["password"]=$row["password"];
-                 $store["password"]=$row["password"];
+                
             
             array_push($response["result"],$store);
         

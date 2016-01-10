@@ -105,6 +105,38 @@ display: block;
 
 <script src="jquery.js"></script>
 <script>
+function delete_req(token){
+var loc = window.location.pathname;
+var dir = loc.substring(0, loc.lastIndexOf('/'));
+var dir = dir.substring(0, dir.lastIndexOf('/'));
+    
+$.ajax(
+ {
+ url : dir+"/php/delete_request.php?token="+token,
+ type: "POST",
+ data : "dummy",
+ success:function(data)
+ {
+var k = JSON.parse(data);
+    var k = k.success;
+  
+if(k==1){
+
+    alert("Request Deleted Successfully.");
+location.replace("school_view.php");}
+else{
+
+alert("Request could not be deleted.");
+location.replace("school_view.php");
+
+}
+
+location.reload(true);
+
+ }
+ });
+    
+    }
 
 
 function approve_req(token){
@@ -141,7 +173,7 @@ $.ajax(
  data : "dummy",
  success:function(data)
  {
-
+//$('#target').append(data);
 location.reload(true);
 
  }
@@ -164,7 +196,7 @@ $.ajax(
  data : "dummy",
  success:function(data)
  {
-
+//$('#target').append(data);
 location.reload(true);
 
  }
@@ -195,7 +227,39 @@ location.reload(true);
 
     }
 
+function delete_don(token){
+var loc = window.location.pathname;
+var dir = loc.substring(0, loc.lastIndexOf('/'));
+var dir = dir.substring(0, dir.lastIndexOf('/'));
+    
+$.ajax(
+ {
+ url : "../php/delete_donation.php?token="+token,
+ type: "POST",
+ data : "dummy",
+ success:function(data)
+ {
+var k = JSON.parse(data);
+    var k = k.success;
+  
+if(k==1){
 
+    alert("Donation Deleted Successfully.");
+location.replace("school_view.php");}
+else{
+
+alert("Donation could not be deleted.");
+location.replace("school_view.php");
+
+}
+
+location.reload(true);
+
+ }
+ });
+
+
+}
 
 function maximize(o) {
 $(o).css("display", "block");
@@ -264,7 +328,7 @@ $(o).css("display", "none");
    foreach($records as $row){
     $kk= "req".$row['req_id'];
    
-	  echo"<div class='inner-panel container' ><div >$row[username]<input  type='button' class='flt btn btn-primary' value='Expand' onclick='maximize($kk)'/><input  type='button' class='flt btn btn-primary' value='Minimize' onclick='minimize($kk)'/><p class='flt pflt'>Request Date: $row[req_time]</p></div ><table id='$kk' class='table table-striped table-hover table-responsive table-condensed' style='display:none;'>";
+	  echo"<div class='inner-panel container' ><div >$row[username]<input  type='button' class='flt btn btn-primary' value='Expand' onclick='maximize($kk)'/><input  type='button' class='flt btn btn-primary' value='Minimize' onclick='minimize($kk)'/><p class='flt pflt'>Request Date: $row[req_time]</p><p class='flt pflt'>Request id: $row[req_id]</p></div ><table id='$kk' class='table table-striped table-hover table-responsive table-condensed' style='display:none;'>";
  
 
         echo "<tr>";
@@ -330,11 +394,11 @@ $(o).css("display", "none");
 
    if($row['req_status']==0){ 
 
-    echo " <input type='button' class='btn btn-success' value='Approve' onclick='approve_req($row[req_id])'/>";}
-        else{echo " <input type='button' class='btn btn-danger'value='Disapprove' onclick='disapprove_req($row[req_id])'/>";}
+    echo "<input type='button' class='btn btn-success flt' value='Approve' onclick='approve_req($row[req_id])'/><input type='button' class='btn btn-danger flt' value='Delete' onclick='delete_req($row[req_id])'/>";}
+        
        
 
-
+  
 
 
         
@@ -362,7 +426,7 @@ $(o).css("display", "none");
    foreach($records as $row){
 $kk= "don".$row['don_id'];
 
-     echo"<div class='inner-panel container'><div>$row[username]<input  type='button' class='flt btn btn-primary' value='Expand' onclick='maximize($kk)'/></td><td><input  type='button' class='flt btn btn-primary' value='Minimize' onclick='minimize($kk)'/><p class='flt pflt'>Request Date: $row[req_time]</p><p class='flt pflt'>Donation Date: $row[don_time]</p></div><table id='$kk' class='table table-striped table-hover table-responsive table-condensed' style='display:none;'>";
+     echo"<div class='inner-panel container'><div>$row[username]<input  type='button' class='flt btn btn-primary' value='Expand' onclick='maximize($kk)'/></td><td><input  type='button' class='flt btn btn-primary' value='Minimize' onclick='minimize($kk)'/><p class='flt pflt'>Request Date: $row[req_time]</p><p class='flt pflt'>Donation Date: $row[don_time]</p><p class='flt pflt'>Request id: $row[req_id]</p></div><table id='$kk' class='table table-striped table-hover table-responsive table-condensed' style='display:none;'>";
         
 
 
@@ -379,12 +443,16 @@ $kk= "don".$row['don_id'];
 
 
         if($row['don_status']==0){ $status="Confirmation Pending";
-        echo "<tr> <td class='danger'>Approval Status:</td><td>$status</td><td></td><td></td></tr>";}
+        echo "<tr> <td class='danger'>Donation Approval Status:</td><td>$status</td><td></td><td></td></tr>";}
         else{$status = "Confirmed";echo "<tr> <td class='success'>Approval Status:</td><td>$status</td><td></td><td></td></tr>";}
         
 
 
-      
+         echo "<tr>";
+        echo"<td class='cells'>Donation Amount:</td><td>$row[don_amount]</td>";
+        echo"<td class='cells'></td><td></td>";
+        echo "</tr>";
+
        
         echo "<tr>";
         echo"<td class='cells'>Donor Email:</td><td>$row[don_email]</td>";
@@ -410,9 +478,10 @@ $kk= "don".$row['don_id'];
         echo"<td class='cells'></td><td></td>";
         echo "</tr>";
        
-        if($row['req_status']==0){ $status = "Not Yet Approved";}
-        else{$status = "Approved by school";}
-        echo "<tr> <td>Approval Status:</td><td>$status</td><td></td><td></td></tr>";
+        if($row['req_status']==0){ $status = "Not Yet Approved";
+        echo "<tr> <td class='danger'>Request Approval Status:</td><td>$status</td><td></td><td></td></tr>";}
+        else{$status = "Approved by school";echo "<tr> <td class='success'>Approval Status:</td><td>$status</td><td></td><td></td></tr>";}
+       
 
         echo "<tr>";
         echo"<td class='cells'>Name: </td><td>$row[full_name]</td>";
@@ -438,13 +507,17 @@ $kk= "don".$row['don_id'];
          echo "<tr>";
         echo"<td class='cells'></td><td class='cells'></td><td class='cells'></td><td class='cells'> ";
 
+
+        if($row['paid']==0){
         if($row['don_status']==0){ 
 
         echo " <input type='button' class='btn btn-success' value='Approve' onclick='approve_don($row[don_id])'/>";}
         else
-            {echo " <input type='button' class='btn btn-danger' value='Disapprove' onclick='disapprove_don($row[don_id])'/>";}
-
+            {echo " <input type='button' class='btn btn-warning' value='Disapprove' onclick='disapprove_don($row[don_id])'/>";}
+}
+else {echo "<input type='button' class='btn btn-danger' value='Delete' onclick='delete_don($row[don_id])'/>";}
         echo "</td></tr>";
+      
 
         
         echo"</table></div>";

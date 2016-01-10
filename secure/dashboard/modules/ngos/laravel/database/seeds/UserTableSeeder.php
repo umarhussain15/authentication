@@ -16,24 +16,18 @@ class UserTableSeeder extends Seeder
     DB::statement("SET foreign_key_checks = 0");
     User::truncate();
     DB::statement("SET foreign_key_checks = 1");
-    
-    User::create([
-      'user_name' => 'glorizen',
-      'user_email' => 'abc@example.com',
-      'password' => 'power321'
-    ]);
 
     User::create([
-      'user_name' => 'ameturasu',
+      'user_name' => 'frodo',
       'user_email' => 'xyz@example.com',
-      'password' => 'user321'
+      'password' => bcrypt('112233'),
     ]);
 
     User::create([
       'user_name' => 'bilbo',
-      'user_email' => 'lmn@example.com',
-      'password' => 'user980',
-      'is_user_admin' => true
+      'user_email' => 'abc@example.com',
+      'password' => bcrypt('112233'),
+      'is_user_ngo' => 1,
     ]);
   }
 }

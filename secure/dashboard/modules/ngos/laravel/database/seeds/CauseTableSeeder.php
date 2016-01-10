@@ -18,23 +18,23 @@ class CauseTableSeeder extends Seeder
     Cause::truncate();
     DB::statement("SET foreign_key_checks = 1");
 
-    $ngo = Ngo::where('ngo_name', 'Double A. ORG')->get()->first();
+    // $ngo = Ngo::where('ngo_name', 'Double A. ORG')->get()->first();
 
-    Cause::create([
-      'user_id' => $ngo->user_id,
-      'cause_title' => 'EarthQuake PK',
-      'cause_venue' => 'ISLAMABAD',
-      'cause_cover' => 'Optimal cover for cause.',
-      'cause_description' => 'Raising fund for PK earthquake.'
-    ]);
+    // Cause::create([
+    //   'user_id' => $ngo->user_id,
+    //   'cause_title' => 'EarthQuake PK',
+    //   'cause_venue' => 'ISLAMABAD',
+    //   'cause_cover' => 'Optimal cover for cause.',
+    //   'cause_description' => 'Raising fund for PK earthquake.'
+    // ]);
 
-    Cause::create([
-      'user_id' => $ngo->user_id,
-      'cause_title' => 'Flood Donation PK',
-      'cause_venue' => 'LAHORE',
-      'cause_cover' => 'Optimal cover for flood water.',
-      'cause_description' => 'Raising fund for Flood prevention.'
-    ]);
+    // Cause::create([
+    //   'user_id' => $ngo->user_id,
+    //   'cause_title' => 'Flood Donation PK',
+    //   'cause_venue' => 'LAHORE',
+    //   'cause_cover' => 'Optimal cover for flood water.',
+    //   'cause_description' => 'Raising fund for Flood prevention.'
+    // ]);
 
     $ngo = Ngo::where('ngo_name', 'Minus Z. ORG')->get()->first();
 

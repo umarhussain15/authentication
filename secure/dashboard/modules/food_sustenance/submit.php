@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+<!--
     <style>
 	body 
 	{	//font-family: "Urdu Typesetting", Arial, Serif;
@@ -33,6 +34,7 @@
 	font-size: medium;
 	}
 	</style>
+-->
 	
   </head>
   <body>

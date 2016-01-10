@@ -50,10 +50,10 @@
 			}
 			// retrieve role from here
 			mysqli_query($conn, "SET NAMES 'utf8'");
-			$query = "SELECT category, name, definition, cause, transmission, symptoms, postmortem_exam, diagnosis, treatment, prevention, publication_date from disease where id = '$q'"; // orderby date_published
+			$query = "SELECT  name, definition, cause, transmission, symptoms, postmortem_exam, diagnosis, treatment, prevention from disease where id = '$q'"; // orderby date_published
 			$result = mysqli_query($conn, $query);
 			while($row = mysqli_fetch_array($result)) {
-				$category = $row['category'];
+//				$category = $row['category'];
 				$name = $row['name'];
 				$def = $row['definition'];
 				$cause = $row['cause'];
@@ -63,9 +63,9 @@
 				$diagnosis = $row['diagnosis'];
 				$treatment = $row['treatment'];
 				$prevention = $row['prevention'];
-				$publication = $row['publication_date'];
+//				$publication = $row['publication_date'];
 
-				echo "$category<br>$name<br>$def<br>$cause<br>$transmission<br>$symptoms<br>$postmortem_examination<br>$diagnosis<br>$treatment<br>$prevention<br>$publication<br>";
+				echo "$name<br>$def<br>$cause<br>$transmission<br>$symptoms<br>$postmortem_examination<br>$diagnosis<br>$treatment<br>$prevention<br>";
 				} 
 			$conn->close();
 		?>

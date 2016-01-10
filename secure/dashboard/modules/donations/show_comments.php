@@ -25,10 +25,9 @@ include "db_config_values.php";
 
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-12 style="height:100px;">
 				
-				<h1 style="text-align:center"> </h1>
-				<hr>
+				  <hr>
 			</div>
 		</div>
 		

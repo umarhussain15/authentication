@@ -88,9 +88,9 @@ include("View_Teachers.php");
 elseif($tag=="view_staff")
 include("View_Staff.php");
 elseif($tag=="view_subjects")
-include("View_Subjects.php");
+include("View_Subjects_Student.php");
 elseif($tag=="view_scores")
-include("View_Scores.php");
+include("View_Scores_Student.php");
 elseif($tag=="view_users")
 include("View_Users.php");
 elseif($tag=="view_faculties")

@@ -128,13 +128,13 @@
 			"type": "select",
              "defaultValue": "1",
 			"templateOptions": {
-				"label": "Acceptor/Contributor",
+				"label": "Admin/User",
 				"required": true,
 				"options": [{
-					"name": "Acceptor",
+					"name": "Admin",
 					"value": "0"
 				}, {
-					"name": "Contributor",
+					"name": "User",
 					"value": "1"
 				}]
 			}

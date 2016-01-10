@@ -18,19 +18,19 @@ class NgoTableSeeder extends Seeder
     Ngo::truncate();
     DB::statement("SET foreign_key_checks = 1");
 
-    $user = User::where('user_name', '=', 'ameturasu')->get()->first();
+    // $user = User::where('user_name', '=', 'frodo')->get()->first();
     
-    Ngo::create([
-      'user_id' => $user->user_id,
-      'ngo_name' => 'Double A. ORG',
-      'ngo_email' => 'doublea@gmail.com',
-      'ngo_phone' => '+923237455131',
-      'ngo_image' => 'ngo image here.',
-      'ngo_cover' => 'ngo cover image here.',
-      'ngo_description' => 'this non-profit origanization is actually dummy.'
-    ]);
+    // Ngo::create([
+    //   'user_id' => $user->user_id,
+    //   'ngo_name' => 'Double A. ORG',
+    //   'ngo_email' => 'doublea@gmail.com',
+    //   'ngo_phone' => '+923237455131',
+    //   'ngo_image' => 'ngo image here.',
+    //   'ngo_cover' => 'ngo cover image here.',
+    //   'ngo_description' => 'this non-profit origanization is actually dummy.'
+    // ]);
 
-    $user = User::where('user_name', '=', 'glorizen')->get()->first();
+    $user = User::where('user_name', '=', 'bilbo')->get()->first();
 
     Ngo::create([
       'user_id' => $user->user_id,

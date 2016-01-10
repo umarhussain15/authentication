@@ -101,6 +101,7 @@ display: block;
         .pflt{margin-right: 10px;}
     .lll{background: #1995dc;
         color: white;}
+        .rr{margin-right: 10px;}
 </style>
 
 <script src="jquery.js"></script>
@@ -165,7 +166,7 @@ $(o).css("display", "none");
 <input type="button" class='btn btn-success' value="Add Request" onclick="location.replace('add_request.php')" />
 <input type="button" class='btn btn-success' value="View My Requests" onclick="location.replace('view_my_request.php')" />
 <input type="button" class='btn btn-success' value="View My Donations" onclick="location.replace('view_my_donation.php')" />
-
+<p class="flt rr"> Your Rating: <?php echo $_SESSION['rating']?></p>
 </div>
 
 

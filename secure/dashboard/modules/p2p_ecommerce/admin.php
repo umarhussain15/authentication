@@ -1,27 +1,3 @@
-<?php 
-
-    //starting session
-    session_start();
-
-    //checking if user is signed in or not
-    if(!isset($_SESSION['dashboard_login_username'])){
-
-        //redirecting
-        echo("<script>window.location = '../../../login?msg=bypass'</script>");
-
-        //stopping php
-        exit();
-
-    }
-    if(!isset($_SESSION['hw_user_chk'])){
-        echo("<script>window.location = './index.php'</script>");
-
-        //stopping php
-        exit();
-
-    }
-
-?>
 <html>
 	<head>
 	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -102,7 +78,7 @@ div.figure p {
 
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">
-	        <li><a href="../../logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+	        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 	      </ul>
 	    </div>
 	  </div>
@@ -116,8 +92,8 @@ div.figure p {
 			<div class = "row imgback">
 
 				<div class = "back"  >
-					<div class = "title text-center">
-					<h2>Hey Admin, Delete Ad by clicking it!</h2>
+					<div class = "title">
+					<h1>Hey Admin, Welcome to your page </h1>
 					</div>
 				</div>
 

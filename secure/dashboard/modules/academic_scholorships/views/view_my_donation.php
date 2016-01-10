@@ -113,6 +113,12 @@ display: block;
 <script src="jquery.js"></script>
 <script>
 
+
+function pay(amount,id){
+    location.replace('../web/topayment.php?amount='+amount+"&don_id="+id);}
+
+
+
 function maximize(o) {
 $(o).css("display", "block");
 }
@@ -183,7 +189,16 @@ $(o).css("display", "none");
         else{$status = "Confirmed";echo "<tr> <td class='success'>Approval Status:</td><td>$status</td><td></td><td></td></tr>";}
         
 
+  echo "<tr>";
+        echo"<td class='cells'>Donation Amount:</td><td>$row[don_amount]</td>";
+        echo"<td class='cells'></td><td></td>";
+        echo "</tr>";
 
+       
+        echo "<tr>";
+        echo"<td class='cells'>My Email:</td><td>$row[don_email]</td>";
+        echo"<td class='cells'>My Contact: </td><td>$row[don_contact]</td>";
+        echo "</tr>";
       
 
 	   
@@ -244,7 +259,14 @@ $(o).css("display", "none");
         echo"<td class='cells'> Additional info:</td><td> $row[add_info]</td>";
         echo "</tr>";
        
-        echo "<tr>";
+        
+        
+        
+        echo"<tr><td class='cells'> </td><td class='cells'> </td> <td class='cells'> </td> <td>";
+        if($row['don_status']==1 && $row['paid']==0){        echo" <input class='btn btn-warning flt' type='button' value='Payment' onclick='pay($row[don_amount],$row[don_id])'/>";}
+        if($row['paid']==1)echo"Paid";
+
+        echo "</td></tr>";  
         
     ;  
        
